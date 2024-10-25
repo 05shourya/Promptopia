@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Form = ({ type, post, setPost, submitting, handleSubmitting }) => {
 	return (
@@ -10,7 +10,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmitting }) => {
 				{type} and share amazing prompts with the world, and let your imagination run wild with any AI-powered platform
 			</p>
 
-			<form action="" className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism">
+			<form onSubmit={handleSubmitting} className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism">
 				<label>
 					<span className="font-satoshi font-semibold text-base text-grey-700">
 						Your AI Prompt
@@ -21,9 +21,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmitting }) => {
 						placeholder="Write your prompt here"
 						required
 						className="form_textarea"
-					>
-
-					</textarea>
+					/>
 				</label>
 				<label>
 					<span className="font-satoshi font-semibold text-base text-grey-700">
@@ -36,20 +34,19 @@ const Form = ({ type, post, setPost, submitting, handleSubmitting }) => {
 						placeholder="#tags "
 						required
 						className="form_input"
-					>
-					</textarea>
+					/>
 				</label>
 				<div className="flex-end mx-3 mb-5 gap-4">
 					<Link href="/" className='text-gray-500 text-sm'>
 						Cancel
 					</Link>
-					<button type='submit' disabled={submitting} onClick={handleSubmitting} className='px-5 py-1.5 text-sm bg-blue-900 rounded-full text-white' >
+					<button type='submit' disabled={submitting} className='px-5 py-1.5 text-sm bg-blue-900 rounded-full text-white'>
 						{submitting ? `${type}...` : type}
 					</button>
 				</div>
 			</form>
-		</section >
-	)
-}
+		</section>
+	);
+};
 
-export default Form
+export default Form;
